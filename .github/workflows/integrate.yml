@@ -29,47 +29,24 @@ jobs:
 
   publish_game:
     runs-on: ubuntu-latest
-#    name: Publish Game To Itch.io
+    name: Publish Game To Itch.io
     needs: [export_game]
     steps:
         - uses: actions/download-artifact@v3
 
         - name: Display structure of downloaded files
           run: ls -R
-#      # Download all published artefacts
-#      - name: download windows build
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: windows
-#          path: ./builds/windows/release
-#
-#      - name: download macos build
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: macos
-#          path: ./builds/macos/release
-#
-#      - name: download linux build
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: linux
-#          path: ./builds/linux/release
-#
-#      - name: download html5 build
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: html5
-#          path: ./builds/html5/release
-#
-#      # Publish exported artifacts to Itch.io
-#      - name: publish windows build
-#        uses: josephbmanley/butler-publish-itchio-action@master
-#        env:
-#          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-#          CHANNEL: windows
-#          ITCH_GAME: ${{ secrets.ITCH_GAME }}
-#          ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-#          PACKAGE: ./builds/windows/release
+
+
+      # Publish exported artifacts to Itch.io
+        - name: publish windows build
+          uses: josephbmanley/butler-publish-itchio-action@master
+          env:
+            BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+            CHANNEL: windows
+            ITCH_GAME: ruletarusa
+            ITCH_USER: agustinoli
+            PACKAGE: ./artifacts/Windows\ Desktop.zip
 #
 #      - name: publish macos build
 #        uses: josephbmanley/butler-publish-itchio-action@master
