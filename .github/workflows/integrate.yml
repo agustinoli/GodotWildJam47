@@ -58,7 +58,7 @@ jobs:
           PACKAGE: ./artifact/linux.zip
 
       # Publish exported artifacts to Itch.io
-      - name: publish linux build
+      - name: publish html5 build
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -68,7 +68,7 @@ jobs:
           PACKAGE: ./artifact/html.zip
 
       # Publish exported artifacts to Itch.io
-      - name: publish linux build
+      - name: publish mac build
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
