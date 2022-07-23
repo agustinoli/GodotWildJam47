@@ -22,9 +22,11 @@ jobs:
           archive_output: true
           verbose: true
 
-      - name: test output
-        run: |
-          ls -lha
+      - name: upload files
+        uses: actions/upload-artifact@v3
+        with:
+          path: .local/share/godot/archives/*
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
 
 #      # Upload exported builds to artifacts
 #      - name: upload windows build
