@@ -32,21 +32,20 @@ jobs:
     name: Publish Game To Itch.io
     needs: [export_game]
     steps:
-        - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v3
 
-        - name: Display structure of downloaded files
-          run: ls -R
-
+      - name: Display structure of downloaded files
+        run: ls -R
 
       # Publish exported artifacts to Itch.io
-        - name: publish windows build
-          uses: josephbmanley/butler-publish-itchio-action@master
-          env:
-            BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-            CHANNEL: windows
-            ITCH_GAME: ruletarusa
-            ITCH_USER: agustinoli
-            PACKAGE: ./artifacts/Windows\ Desktop.zip
+      - name: publish windows build
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: windows
+          ITCH_GAME: ruletarusa
+          ITCH_USER: agustinoli
+          PACKAGE: ./artifacts/windows.zip
 #
 #      - name: publish macos build
 #        uses: josephbmanley/butler-publish-itchio-action@master
