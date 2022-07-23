@@ -2,7 +2,7 @@ name: Build & Publish Game
 
 on:
   push:
-    branches: [feat/add-cicd]
+    branches: [main]
 
 jobs:
   export_game:
@@ -76,17 +76,3 @@ jobs:
           ITCH_GAME: ruletarusa
           ITCH_USER: agustinoli
           PACKAGE: ./artifact/mac.zip
-#
-#  clean_up:
-#    runs-on: ubuntu-latest
-#    name: Clean up artifacts
-#    needs: [publish_game]
-#    steps:
-#      # Delete all artifacts
-#      - uses: geekyeggo/delete-artifact@v1
-#        with:
-#          name: |
-#            windows
-#            macos
-#            linux
-#            html5
