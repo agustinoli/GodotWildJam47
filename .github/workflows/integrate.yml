@@ -46,33 +46,36 @@ jobs:
           ITCH_GAME: ruletarusa
           ITCH_USER: agustinoli
           PACKAGE: ./artifact/windows.zip
-#
-#      - name: publish macos build
-#        uses: josephbmanley/butler-publish-itchio-action@master
-#        env:
-#          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-#          CHANNEL: osx
-#          ITCH_GAME: ${{ secrets.ITCH_GAME }}
-#          ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-#          PACKAGE: ./builds/macos/release
-#
-#      - name: publish linux build
-#        uses: josephbmanley/butler-publish-itchio-action@master
-#        env:
-#          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-#          CHANNEL: linux
-#          ITCH_GAME: ${{ secrets.ITCH_GAME }}
-#          ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-#          PACKAGE: ./builds/linux/release
-#
-#      - name: publish html5 build
-#        uses: josephbmanley/butler-publish-itchio-action@master
-#        env:
-#          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-#          CHANNEL: HTML5
-#          ITCH_GAME: ${{ secrets.ITCH_GAME }}
-#          ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-#          PACKAGE: ./builds/html5/release
+
+      # Publish exported artifacts to Itch.io
+      - name: publish linux build
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: linux
+          ITCH_GAME: ruletarusa
+          ITCH_USER: agustinoli
+          PACKAGE: ./artifact/linux.zip
+
+      # Publish exported artifacts to Itch.io
+      - name: publish linux build
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: html
+          ITCH_GAME: ruletarusa
+          ITCH_USER: agustinoli
+          PACKAGE: ./artifact/html.zip
+
+      # Publish exported artifacts to Itch.io
+      - name: publish linux build
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: mac
+          ITCH_GAME: ruletarusa
+          ITCH_USER: agustinoli
+          PACKAGE: ./artifact/mac.zip
 #
 #  clean_up:
 #    runs-on: ubuntu-latest
